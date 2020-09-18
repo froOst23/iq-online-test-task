@@ -1,2 +1,1 @@
-iq-online-test-task: python3 run.py
-web: gunicorn run:app
+web: gunicorn --pythonpath app run
