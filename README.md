@@ -8,6 +8,10 @@
 ![](preview/preview.png)
 
 ### Docker
+Для корректной работы контейнера расскоментируйте строчку в [run.py](https://github.com/froOst23/iq-online-test-task/blob/master/run.py):
+
+<code>app.run(debug=True, host='0.0.0.0')</code>
+
 Для сборки docker контейнера используйте следующую команду:
 
 <code>docker build -t *container_name:tag* .</code>
