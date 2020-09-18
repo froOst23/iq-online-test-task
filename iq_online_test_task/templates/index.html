@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main_calc_form">
+    <div class="main_calc_form_h1">
+        Калькулятор    
+    </div>
+    <div class="main_calc_form_date_contribution">
+
+        <form action="index" method="POST">
+            <table>
+                <tr>
+                    <td align="right">
+                        <label for="date_contribution">Дата оформления вклада</label>
+                    </td>
+                    <td>
+                        <input type="date" name="date_contribution" value="{{ date_contribution }}">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="deposit_amount">Сумма вклада</label>
+                    </td>
+                    <td>
+                        <input type="number" 
+                               name="deposit_amount" 
+                               min="1000" max="3000000" 
+                               value="{{ deposit_amount }}" 
+                               id="deposit_amount_number" 
+                               oninput="deposit_amount_range.value=deposit_amount_number.value"\>
+                    </td>
+                    <td>
+                        <input type="range" 
+                               name="deposit_amount" 
+                               min="1000" 
+                               max="3000000"  
+                               value="{{ deposit_amount }}" 
+                               id="deposit_amount_range" 
+                               step="1000" 
+                               oninput="deposit_amount_number.value=deposit_amount_range.value"\>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="term_of_deposit">Срок вклада</label>
+                    </td>
+                    <td>
+                        <select name="term_of_deposit">
+                            <option selected value="1">1 год</option>
+                            <option value="2">2 года</option>
+                            <option value="3">3 года</option>
+                            <option value="3">4 года</option>
+                            <option value="3">5 лет</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="deposit_replenishment">Пополнение вклада</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="deposit_replenishment" value="True"> Да </input>
+                        <input type="radio" name="deposit_replenishment" value="False"> Нет </input>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <label for="deposit_replenishment_amount">Сумма пополнения вклада</label>
+                    </td>
+                    <td>
+                        <input type="number" 
+                               name="deposit_replenishment_amount"
+                               min="1000" max="3000000" 
+                               value="{{ deposit_replenishment_amount }}" 
+                               id="dra_number" 
+                               oninput="dra_range.value=dra_number.value"\>
+                        
+                    </td>
+                    <td>
+                        <input type="range" 
+                               name="deposit_replenishment_amount" 
+                               min="1000" 
+                               max="3000000"  
+                               value="{{ deposit_replenishment_amount }}" 
+                               id="dra_range" 
+                               step="1000" 
+                               oninput="dra_number.value=dra_range.value"\>
+                        <datalist id=dra_range>
+                            <option>1000</option>
+                            <option>3000000</option>
+                            </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <input type="submit" value="Рассчитать" size="40" >
+                    </td>
+                    <td>
+                        Результат: {{ result }} руб.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="color: #fc3e00; font-size: 20px;">
+                        {{ message }}
+                    </td>
+                </tr>
+                    
+            </table>  
+        </form>
+    </div>
+</div>
+{% endblock %}

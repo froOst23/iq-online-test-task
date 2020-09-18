@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>
+        {{ title }}
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+<div id="main">
+    <div class="logo_panel">
+        <div class="logo">
+            <span class="logo">
+                <img src="{{url_for('static', filename='images/logo.png')}}">
+            </span>
+        </div>
+        <dir class="space">
+
+        </dir>
+        <div class="logo_text">
+            <span class="logo_text">
+                {% for phone in phones %}
+                    {{ phone }} 
+                    <br>
+                {% endfor %}
+            </span>
+        </div>
+    </div>
+    <div class="navigation">
+        <span class="navigation_menu">
+            {% for menu in menus %}
+                <a href="{{ menu.url }}">
+                    {{ menu.item }}
+                </a>
+            {% endfor %}
+        </span>
+    </div>
+    <div class="sub_navigation">
+        <span class="sub_navigation_menu">
+            {% for sub_menu in sub_menus %}
+                <a href="{{ sub_menu.url }}">
+                    {{ sub_menu.item }}
+                </a>
+            {% endfor %}
+        </span>
+    </div>
+</div>
+<div class="main_calc">
+    {% block content %}{% endblock %}
+</div>
+<div class="bottom_menu">
+    <span class="navigation_bottom_menu">
+        {% for menu in menus %}
+            <a href="{{ menu.url }}">
+                {{ menu.item }}
+            </a>
+        {% endfor %}
+    </span>
+</div>
+</body>
+</html>
