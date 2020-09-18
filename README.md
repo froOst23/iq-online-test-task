@@ -1,2 +1,2 @@
-# iq-online-test-task
-Test task for a web developer
+# IQ Online test task:
+Тестовое задание для web-разработчика
