@@ -1,8 +1,13 @@
 # IQ Online test task:
-Тестовое задание для web-разработчика
+## Тестовое задание для web-разработчика
+### Используемый стек технологий:
+При реализации данного задания были использован следующий стек:
+
+<code>python3</code>, <code>flask</code>, <code>jinja2</code>, <code>html5</code>, <code>css</code>
+
 ![](preview/preview.png)
 
-## Docker
+### Docker
 Для сборки docker контейнера используйте следующую команду:
 
 <code>docker build -t *container_name:tag* .</code>
