@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath app run
+worker: python run.py
